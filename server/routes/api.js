@@ -1,5 +1,6 @@
 const express = require("express");
 const MonogDB = require("../model/DBschema");
+const dataManager=require("../utilities/dataManager");
 
 const router = express.Router();
 
@@ -12,15 +13,9 @@ router.get("/Todo", function (req, res) {
 });
 
 router.post("/todoCreate", (req, res) => {
-  const Todo = new MonogDB({
-      name: req.body.name,
-      date: req.body.date,
-      description:req.body.description,
-      isDone:req.body.isDone
-  })
-  Todo.save().then((res) => {
-      console.log(res+"added to db")
-  })
+   
+   data.addTodoList(req)
+   
   res.end()
 })
 
