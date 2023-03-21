@@ -5,7 +5,8 @@ const ToDoSchema = new schema({
     name:String ,
     date:Date ,
     description:String,
-    isDone:{type :Boolean , default : false}
+    isDone:{type :Boolean , default : false},
+    gifUrl : String
 
 })
 
