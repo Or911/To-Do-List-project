@@ -24,18 +24,4 @@ router.post("/user", (req, res) => {
   res.end();
 });
 
-const createUser = function (username, password) {
-  const user = new usersDB({
-    username: username,
-    password: bcrypt.hashSync(password, salt),
-  });
-
-  user.save().then((user) => {
-    console.log(user + "added to db");
-  });
-};
-
-//ליצור משתמש חדש
-// createUser('or' , '1234')
-
 module.exports = router;
