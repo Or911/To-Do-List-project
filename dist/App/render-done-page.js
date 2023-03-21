@@ -1,7 +1,8 @@
 function renderDonePage(doneArray) {
-    $(".window").empty()
-    const source = $("#done-template").html()
+    $(".containerToDoList").empty()
+    $(".done-container").empty()
+    const source = $("#donecard-template").html()
     const template = Handlebars.compile(source)
     let newHtml = template({doneArray})
-    $(".window").append(newHtml)
+    $(".done-container").append(newHtml)
 }
