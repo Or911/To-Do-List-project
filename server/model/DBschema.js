@@ -6,7 +6,7 @@ const ToDoSchema = new schema({
     date:Date ,
     description:String,
     isDone:{type :Boolean , default : false},
-    gifUrl : String
+    gifUrl :{type: String , default: `https://media0.giphy.com/media/2rKDe8JpAEatWVamEe/giphy.gif?cid=620ab5ccfpw295ydqluxnsejhj2gl5xjhz4te3pscggybtut&rid=giphy.gif&ct=g`}
 
 })
 

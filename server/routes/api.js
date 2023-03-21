@@ -21,6 +21,14 @@ router.get("/Todo/:name", authToken, function (req, res) {
       res.send(todoCard);
     });
 });
+router.get("/TodosDone/:isDone", authToken , function (req, res) {
+
+  MonogDB.find({isDone : req.params.isDone})
+    .sort({ date: -1 })
+    .then(function (todoCards) {
+      res.send(todoCards);
+    });
+});
 
 router.post("/Todo", authToken , (req, res) => {
 
