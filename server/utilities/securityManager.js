@@ -12,6 +12,7 @@ function generateAccessToken(user) {
 
 async function authenticateUser(username, password) {
   const user = await usersDB.findOne({ username: username });
+
   if (!user) {
     return null;
   }
@@ -19,6 +20,7 @@ async function authenticateUser(username, password) {
   if (!isPasswordValid) {
     return null;
   }
+  
   return { id: user._id, username: user.username };
 }
 
@@ -33,4 +35,23 @@ const addUser = function (req) {
   });
 };
 
-module.exports = { generateAccessToken, authenticateUser , addUser };
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.sendStatus(401);
+  }
+
+  jwt.verify(token, secretKey, (err, user) => {
+    if (err) {
+      return res.sendStatus(401);
+    }
+
+    req.user = user;
+    next();
+  })
+}
+
+module.exports = { generateAccessToken, authenticateUser , addUser , authenticateToken };
