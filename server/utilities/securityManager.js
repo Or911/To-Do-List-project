@@ -54,4 +54,5 @@ function authenticateToken(req, res, next) {
   })
 }
 
+
 module.exports = { generateAccessToken, authenticateUser , addUser , authenticateToken };

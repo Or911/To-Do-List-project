@@ -50,4 +50,12 @@ class Render {
     });
     calendar.render();
   }
+  ToDoCardRender(card){
+      $(".cards-container").empty()
+      const source = $("#card-template").html()
+      const template = Handlebars.compile(source)
+      let newHtml = template(card)
+      $(".cards-container").append(newHtml)
+  }
+  
 }
