@@ -12,6 +12,9 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script> 
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
     <title>Document</title>
 </head>
 
@@ -34,14 +37,16 @@
         </div>
       </script>
 <div class="window">
-      <div class="cards-container"></div>
-
-    <div class="containerToDoList">
-        <div id='calendar-container'></div>
+    <div class="cards-container"></div>
+        
     </div>
 </div>
-
-<script src="./render.js"></script>
+<div id="navBar">
+    <a class="waves-effect waves-light btn-large" id="doneListPage">Done</a>
+    <a class="waves-effect waves-light btn-large" id="calendarPage">Home</a>
+    <a class="waves-effect waves-light btn-large">Add To Do</a>
+</div>
+<script src="./render-calendar-Home-page.js"></script>
 <script src="./main.js"></script>
 </body>
 </html>
