@@ -22,5 +22,46 @@
     </form>
   </div>
   <script src="login.js"></script>
+    <div id="add-todo-page"></div>
+    <div class="card text-center">
+        <div class="card-header">
+            Card Name
+        </div>
+        <div class="card-body">
+            <p class="card-text">Description.</p>
+
+        </div>
+        <div class="card-footer text-muted">
+            <a href="#" class="btn btn-outline-dark delete-btn">Delete</a>
+            <a href="#" class="btn btn-outline-dark">Edit</a>
+            <p class="card-text">ToDo until: 23/12/2000</p>
+        </div>
+    </div>
+</div>
+
+    <script id="card-template" type="text/x-handlebars-template">
+        <div class="card text-center">
+            <div class="card-header">
+                {{header}}
+            </div>
+            <div class="card-body">
+            <p class="card-text">{{Description}}</p>
+            
+            </div>
+            <div class="card-footer text-muted">
+                <a href="#" class="btn btn-outline-dark delete-btn">Delete</a>
+                <a href="#" class="btn btn-outline-dark">Edit</a>
+                <p class="card-text">ToDo until: {{date}}</p>
+            </div>
+        </div>
+      </script>
+
+    <div class="containerToDoList">
+        <div id='calendar-container'></div>
+    </div>
+    
+
+<script src="./render.js"></script>
+<script src="./main.js"></script>
 </body>
 </html>
