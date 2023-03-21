@@ -17,7 +17,7 @@
         {{#each doneArray}}
             <div class="isdone">
                 {{#if isDone}}
-                <div id="{{name}}">
+                <div id="card">
                     {{name}}
                     {{date}}
                     {{description}}
@@ -31,14 +31,15 @@
         <div class="done-container">
 
         </div>
-
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="./jquery/dist/jquery.js"></script>
-        <script src="./handlebars/dist/handlebars.js"></script>
-        <script src="weather.js"></script>
-        <script src="render.js"></script>
-        <script src="main.js"></script>
+    </div>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="to-do-list.js"></script>
+    <script src="render-done-page.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

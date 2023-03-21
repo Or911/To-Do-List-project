@@ -1,13 +1,5 @@
 const render = new Render();
-// זה הדאטא שנכנס 
-// let mokdata = {
-//   name: "to do",
-//   isDone: false,
-//   date: "2023-03-23",
-//   description: "hi dear my name",
-// };
-// render.addEvent(mokdata); // render new event to page calender
-
+const todo=new TodoList();
 
 $("body").on("click", ".delete-btn", function () {
   const footer = $(this).parent();
@@ -16,7 +8,7 @@ $("body").on("click", ".delete-btn", function () {
   $.get(`/deleteTodo/${name}`);
 });
 
-
-
-
-render.calendar();// render first time
+function doneRendrer(){
+  todo.getAllList()
+}
+render.calendar();
