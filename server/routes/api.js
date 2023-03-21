@@ -4,6 +4,7 @@ const dataManager = require("../utilities/dataManager");
 
 const router = express.Router();
 
+
 router.get("/Todo", function (req, res) {
   MonogDB.find({})
     .sort({ date: -1 })
@@ -21,17 +22,7 @@ router.get("/Todo/:name", function (req, res) {
 
 router.post("/Todo", (req, res) => {
 
-<<<<<<< HEAD
   dataManager.addTodoCard(req)
-=======
-router.delete('/deleteTodo/:todoName', function (req, res) {
-  let todoName = req.params.todoName
-  MonogDB.deleteOne({name:todoName}).then((todo)=>{
-      console.log(todo+"deleted");
-  })
-  res.end()
-})
->>>>>>> d8271403a31b1c59f96963fc1c3aa16e05dfc164
 
   res.end();
 });
