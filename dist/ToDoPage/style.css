@@ -1,0 +1,11 @@
+#create-todo-container{
+    display: grid;
+}
+#userinput{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#submit-button{
+    margin-top: 1em;
+    width: 100%;
+}
