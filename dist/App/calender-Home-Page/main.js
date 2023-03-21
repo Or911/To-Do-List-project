@@ -32,6 +32,10 @@ $(".cards-container").on("click", "#buttonXofCard", function () {
   $(".cards-container").removeClass("displayCard") 
 });
 
+$('#doneListPage').on("click", function(){
+  console.log(11);
+      window.location.href = '/App/done-page/index.html';
+})
 
 
 render.calendar();// render first time
