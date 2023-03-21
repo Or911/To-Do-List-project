@@ -17,7 +17,7 @@ loginForm.on('submit', function(event) {
     success: function(data) {
       localStorage.setItem('token', data.accessToken);
       console.log(data.accessToken);
-      //window.location.href = '/calander_page/index.html';
+      window.location.href = '/App/index.html';
     },
 
     error: function(error, textStatus, errorThrown) {
