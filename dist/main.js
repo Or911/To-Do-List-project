@@ -2,7 +2,7 @@ const render = new Render();
 // זה הדאטא שנכנס 
 // let mokdata = {
 //   name: "to do",
-//   isDone: true,
+//   isDone: false,
 //   date: "2023-03-23",
 //   description: "hi dear my name",
 // };
