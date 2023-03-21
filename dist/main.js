@@ -1,9 +1,7 @@
-// import { Calendar } from 'fullcalendar'
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   const calendarEl = document.getElementById('calendar')
-//   const calendar = new Calendar(calendarEl, {
-//     initialView: 'dayGridMonth'
-//   })
-//   calendar.render()
-// })
+$("body").on('click', '.delete-btn', function () {
+    const footer = $(this).parent();
+    const parent = footer.parent().html()
+    const name = $(`${parent}:first-child`).html()
+    $.get(`/deleteTodo/${name}`)
+})

@@ -23,7 +23,7 @@ router.post("/todoCreate", (req, res) => {
 router.delete('/deleteTodo/:todoName', function (req, res) {
   let todoName = req.params.todoName
   MonogDB.deleteOne({name:todoName}).then((todo)=>{
-      console.log(todo+"daleted");
+      console.log(todo+"deleted");
   })
   res.end()
 })
