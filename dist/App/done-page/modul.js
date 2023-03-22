@@ -20,4 +20,20 @@ class TodoList {
         })
         
     }
+
+    delete(name){
+        $.ajax({
+            method:"DELETE",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+              },
+            url: `/Todo/${name}`,
+            
+            success: (info) => {
+                
+                console.log(info+"deleted");
+            }
+        })
+    }
+
 }

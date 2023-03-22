@@ -1,4 +1,3 @@
-
 const todo = new TodoList();
 
 function doneRendrer(){
@@ -12,5 +11,13 @@ $("#calendarPage").on("click", function () {
 $("#createListPage").on("click", function () {
   window.location.href = "/App/ToDoPage/index.html";
 });
+
+function removeDoneCard() {
+  cardName = $(this).data("name")
+  todo.delete(cardName)
+  doneRendrer()
+}
+
+$("#cardId").on("click", "#remove", removeDoneCard)
 
 doneRendrer()
