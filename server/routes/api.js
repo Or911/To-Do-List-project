@@ -62,15 +62,24 @@ router.delete("/Todo/:name", authToken, function (req, res) {
     }
   })
 });
+router.put("/Todo/:ListID", authToken , function (req, res) {
+  const filter = { _id: req.params.ListID };
+  const update = { isDone: true };
+  MonogDB.findOneAndUpdate(filter, update).then(() =>{
+    res.status(204)
+})
+.catch(err=>{res.status(400).send({err})})
+})
 
-router.put("/Todo/:name", authToken, function (req, res) {
+router.put("/Todo/:name", authToken , function (req, res) {
   let todoName = req.params.name;
   let description = req.body.description;
 
-  MonogDB.findOneAndUpdate({ name: todoName }, { description: description }).then((todo) => {
+  MonogDB.findOneAndUpdate({ name: todoName } , {description : description} ).then((todo) => {
     console.log(todo);
   });
 
   res.end();
 });
+
 module.exports = router;

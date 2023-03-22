@@ -19,7 +19,6 @@ const addTodoCard = function (req) {
 
     Todo.save().then((res) => {
       UsersDB.findOneAndUpdate({username: req.user.username} , {$push : {todoCards: Todo}} , {new: true}).then((newUser) => {
-        console.log(newUser)
       })
     });
   })
