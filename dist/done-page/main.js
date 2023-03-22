@@ -11,4 +11,8 @@ $("body").on("click", ".delete-btn", function () {
 function doneRendrer(){
   todo.getAllList()
 }
+
+function deleteDone(){
+  todo.delete(name)
+}
 render.calendar();
