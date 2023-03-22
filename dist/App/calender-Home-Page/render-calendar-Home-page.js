@@ -12,8 +12,7 @@ class Render {
     const imgDone = "https://cdn-icons-png.flaticon.com/512/4436/4436481.png";
     let newEvent = {
       title: todoList.name,
-      start: new Date(),
-      end: todoList.date,
+      start: todoList.date,
     };
     if (todoList.isDone) {
       newEvent.image_url = imgDone;
@@ -22,7 +21,7 @@ class Render {
   }
 
   calendar() {
-    $('.window').append(`<div id='calendar-container'></div>`)
+    $(".window").append(`<div id='calendar-container'></div>`);
     const calendarHtml = document.getElementById("calendar-container");
     const calendar = new FullCalendar.Calendar(calendarHtml, {
       initialView: "dayGridMonth",
@@ -51,12 +50,11 @@ class Render {
     });
     calendar.render();
   }
-  ToDoCardRender(card){
-      $(".cards-container").empty()
-      const source = $("#card-template").html()
-      const template = Handlebars.compile(source)
-      let newHtml = template(card)
-      $(".cards-container").append(newHtml)
+  ToDoCardRender(card) {
+    $(".cards-container").empty();
+    const source = $("#card-template").html();
+    const template = Handlebars.compile(source);
+    let newHtml = template(card);
+    $(".cards-container").append(newHtml);
   }
-  
 }
