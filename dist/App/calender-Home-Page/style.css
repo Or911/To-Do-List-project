@@ -55,6 +55,7 @@
   position: absolute;
   
 }
+
 #navBar{
   z-index: 3;
   background-color: aqua;
@@ -63,7 +64,7 @@
   display: block;
   position: fixed;
   bottom: 0;
-  padding-left: 32%;
+  padding-left: 40%;
 }
 .gif{
   width: 120px;

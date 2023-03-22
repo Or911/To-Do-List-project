@@ -20,3 +20,11 @@ $("#submit-button").on('click', function () {
           }
       });
 })
+
+$("#doneListPage").on("click", function () {
+    window.location.href = "/App/done-page/index.html";
+});
+  
+$("#calendarPage").on("click", function () {
+    window.location.href = "/App/calender-Home-Page/index.html";
+});

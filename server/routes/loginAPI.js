@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const usersDB = require("../model/UserSchema");
 const securityManager = require("../utilities/securityManager");
-const bcrypt = require("bcryptjs");
 
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
@@ -21,7 +19,7 @@ router.post("/user", (req, res) => {
 
   securityManager.addUser(req);
 
-  res.end();
+  res.status(201).send();
 });
 
 module.exports = router;

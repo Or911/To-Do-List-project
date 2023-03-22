@@ -20,6 +20,7 @@ $(".cards-container").on("click", "#buttonXofCard", function () {
 $("#doneListPage").on("click", function () {
   window.location.href = "/App/done-page/index.html";
 });
+
 $("#createListPage").on("click", function () {
   window.location.href = "/App/ToDoPage/index.html";
 });

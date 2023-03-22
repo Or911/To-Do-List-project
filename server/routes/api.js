@@ -43,7 +43,7 @@ router.delete("/Todo/:name", authToken , function (req, res) {
   let todoName = req.params.name;
 
   MonogDB.deleteOne({ name: todoName }).then((todo) => {
-    console.log(todo + "daleted");
+    console.log("daleted");
   });
   res.end();
 });
