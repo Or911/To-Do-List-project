@@ -22,6 +22,7 @@ class Render {
   }
 
   calendar() {
+    $('.window').append(`<div id='calendar-container'></div>`)
     const calendarHtml = document.getElementById("calendar-container");
     const calendar = new FullCalendar.Calendar(calendarHtml, {
       initialView: "dayGridMonth",

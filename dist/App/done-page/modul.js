@@ -1,3 +1,4 @@
+
 class TodoList {
 
     constructor() {
@@ -7,8 +8,11 @@ class TodoList {
     getAllList() {
         $.ajax({
             method:"GET",
-            url: '/Todo',
+            url: `/TodosDone/true`,
             dataType: 'json',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+              },
             success: (info) => {
                 this.data=info
                 renderDonePage(this.data)
@@ -16,6 +20,7 @@ class TodoList {
         })
         
     }
+<<<<<<< HEAD:dist/done-page/modul.js
 
     delete(name){
         $.ajax({
@@ -30,3 +35,6 @@ class TodoList {
         })
     }
 }
+=======
+}
+>>>>>>> 383510c4c995176f4b684d711d11507e723f4bc2:dist/App/done-page/modul.js

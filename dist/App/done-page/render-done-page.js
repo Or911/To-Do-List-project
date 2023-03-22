@@ -5,6 +5,4 @@ function renderDonePage(doneArray) {
     const template = Handlebars.compile(source)
     let newHtml = template({doneArray})
     $(".done-container").append(newHtml)
-}   
- 
-
+}
