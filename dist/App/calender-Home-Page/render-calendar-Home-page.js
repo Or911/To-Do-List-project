@@ -9,7 +9,6 @@ class Render {
     this.calendar();
   }
   sortDataToEvent(todoList) {
-    console.log(todoList.date);
     const imgDone = "https://cdn-icons-png.flaticon.com/512/4436/4436481.png";
     let newEvent = {
       title: todoList.name,

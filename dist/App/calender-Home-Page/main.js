@@ -1,5 +1,5 @@
 const render = new Render();
-const userDataAPI = new UserDataAPI()
+const userDataAPI = new UserDataAPI();
 $("body").on("click", ".delete-btn", function () {
   const footer = $(this).parent();
   const parent = footer.parent().html();
@@ -8,9 +8,9 @@ $("body").on("click", ".delete-btn", function () {
 });
 
 $("body").on("click", ".fc-event-main", function () {
-  let todoList = $(this).children(".fc-event-title").text();
-  console.log(todoList); //name of card to find the data
-  render.ToDoCardRender(todoList); //insert the data to render
+  let nameOfList = $(this).children(".fc-event-title").text();
+  let list = userDataAPI.getUserByName(nameOfList);
+  render.ToDoCardRender(list);
   $(".cards-container").addClass("displayCard");
 });
 $(".cards-container").on("click", "#buttonXofCard", function () {
@@ -24,15 +24,14 @@ $("#createListPage").on("click", function () {
   window.location.href = "/App/ToDoPage/index.html";
 });
 
-const firstLoad = function (){
+const firstLoad = function () {
   render.calendar();
-  userDataAPI.getDataUser()
-  .then(data => {
-    data.forEach((d) =>{
-      render.addEvent(d)
-    })
-  })
-}
+  userDataAPI.getDataUser().then((data) => {
+    data.forEach((d) => {
+      render.addEvent(d);
+    });
+  });
+};
 
- // render first time
-firstLoad()
+// render first time
+firstLoad();

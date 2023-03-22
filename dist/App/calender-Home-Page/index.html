@@ -21,13 +21,14 @@
 
 <body>
     <script id="card-template" type="text/x-handlebars-template">
-        <div class="card">
+        <div class="card {{isDone}}">
             <div class="card-header">
                 {{name}}
                 <button id="buttonXofCard">X</button>
             </div>
             <div class="card-body">
             <p class="card-text">{{description}}</p>
+            <img class="gif" src="{{gifUrl}}" alt="gif">
             
             </div>
             <div class="card-footer text-muted">
