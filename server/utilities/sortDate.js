@@ -9,6 +9,7 @@ const sortMomentDate = function (data) {
       isDone: d.isDone,
       gifUrl: d.gifUrl,
       description: d.description,
+      id: d._id,
     };
     newData.push(card);
   });

@@ -2,6 +2,9 @@ class Render {
   constructor() {
     this.events = [];
   }
+  removeAllEvent(){
+    this.events = []
+  }
   removeEvent(name) {
     let newEvents = this.events.filter((e) => e.title !== name);
     this.events = newEvents;
@@ -40,7 +43,7 @@ class Render {
         let titleEvent = document.createElement("div");
         if (arg.event._def.title) {
           titleEvent.innerHTML = arg.event._def.title;
-          titleEvent.classList = "fc-event-title fc-sticky";
+          titleEvent.classList = `fc-event-title fc-sticky`;
         }
 
         let imgEventWrap = document.createElement("div");
@@ -59,8 +62,10 @@ class Render {
     calendar.render();
   }
   ToDoCardRender(card) {
+    $(".cards-container").empty()
     if (card.isDone) {
       card.color = "green";
+      $('.checkbox').attr("disabled", true)
     } else if (new Date(card.date) < new Date()) {
       card.color = "red";
     } else {
