@@ -10,7 +10,7 @@ $("body").on("click", ".delete-btn", function () {
 $("body").on("click", ".fc-event-main", function () {
   let todoList = $(this).children(".fc-event-title").text();
   console.log(todoList); //name of card to find the data
-  render.ToDoCardRender(mokdata); //insert the data to render
+  render.ToDoCardRender(todoList); //insert the data to render
   $(".cards-container").addClass("displayCard");
 });
 $(".cards-container").on("click", "#buttonXofCard", function () {
@@ -18,11 +18,9 @@ $(".cards-container").on("click", "#buttonXofCard", function () {
 });
 
 $("#doneListPage").on("click", function () {
-  console.log(11);
   window.location.href = "/App/done-page/index.html";
 });
 $("#createListPage").on("click", function () {
-  console.log(11);
   window.location.href = "/App/ToDoPage/index.html";
 });
 
