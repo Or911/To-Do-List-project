@@ -10,6 +10,10 @@ const ToDoSchema = new schema({
 
 })
 
+ToDoSchema.pre('remove', function(next) {
+    this.model('Users').remove({ todoCards: this._id }, next);
+});
+
 const listToDo = mongoose.model('ToDo', ToDoSchema);
 module.exports = listToDo;
 

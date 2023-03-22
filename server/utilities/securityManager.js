@@ -1,4 +1,4 @@
-const usersDB = require("../model/UserSchema");
+const UsersDB = require("../model/UserSchema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -11,7 +11,7 @@ function generateAccessToken(user) {
 }
 
 async function authenticateUser(username, password) {
-  const user = await usersDB.findOne({ username: username });
+  const user = await UsersDB.findOne({ username: username });
 
   if (!user) {
     return null;
@@ -25,7 +25,7 @@ async function authenticateUser(username, password) {
 }
 
 const addUser = function (req) {
-  const user = new usersDB({
+  const user = new UsersDB({
     username: req.body.username,
     password: bcrypt.hashSync(req.body.password, salt)
   });
