@@ -30,51 +30,56 @@ router.get("/Todo", authToken , function (req, res) {
 });
 
 router.get("/Todo/:name", authToken, function (req, res) {
-  MonogDB.findOne({name : req.params.name})
+  MonogDB.findOne({ name: req.params.name })
     .then(function (todoCard) {
       res.send(todoCard);
     });
 });
-router.get("/TodosDone/:isDone", authToken , function (req, res) {
+router.get("/TodosDone/:isDone", authToken, function (req, res) {
 
-  MonogDB.find({isDone : req.params.isDone})
+  MonogDB.find({ isDone: req.params.isDone })
     .sort({ date: -1 })
     .then(function (todoCards) {
       res.send(todoCards);
     });
 });
 
-router.post("/Todo", authToken , (req, res) => {
+router.post("/Todo", authToken, (req, res) => {
 
   dataManager.addTodoCard(req)
 
   res.end();
 });
 
-router.delete("/Todo/:name", authToken , function (req, res) {
+router.delete("/Todo/:name", authToken, function (req, res) {
   let todoName = req.params.name;
-
+  console.log(todoName);
   MonogDB.deleteOne({ name: todoName }).then(function (err) {
-    if(err.deletedCount > 0) {
-      res.send({messege : `deleted : ${todoName}`});
-    }else{
-      res.status(404).send({messege : `couldn't find todo card with that name : ${todoName}` });
+    if (err.deletedCount > 0) {
+      res.send({ messege: `deleted : ${todoName}` });
+    } else {
+      res.status(404).send({ messege: `couldn't find todo card with that name : ${todoName}` });
     }
   })
 });
 router.put("/Todo/:ListID", authToken , function (req, res) {
   const filter = { _id: req.params.ListID };
   const update = { isDone: true };
-  MonogDB.findOneAndUpdate(filter, update)
-  .then(() =>{
+  MonogDB.findOneAndUpdate(filter, update).then(() =>{
     res.status(204)
 })
 .catch(err=>{res.status(400).send({err})})
+})
 
-// router.put("/Todo/:name", authToken , function (req, res) {
-//   let todoName = req.params.name;
-//   let description = req.body.description;
+router.put("/Todo/:name", authToken , function (req, res) {
+  let todoName = req.params.name;
+  let description = req.body.description;
+
+  MonogDB.findOneAndUpdate({ name: todoName } , {description : description} ).then((todo) => {
+    console.log(todo);
+  });
 
   res.end();
 });
+
 module.exports = router;

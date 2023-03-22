@@ -30,8 +30,8 @@ class TodoList {
             url: `/Todo/${name}`,
             
             success: (info) => {
-
-                console.log(info+"deleted");
+                
+               console.log("deleted");
             }
         })
     }
