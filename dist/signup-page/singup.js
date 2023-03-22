@@ -1,34 +1,28 @@
-const loginForm = $("#login-form");
-const loginBtn = $("#login-btn");
-const signUp = $("#signUpFromLogin");
-signUp.on('click', function () {
-  window.location.href = "/signup-page/index.html"
-})
+const signUpForm = $("#signup-form");
+const signupBtn = $("#signup-btn");
 
-loginForm.on("submit", function (event) {
+const goToLogin = function () {
+  window.location.href = "../index.html";
+}
+signUpForm.on("submit", function (event) {
   event.preventDefault();
 
   const username = $("#username").val();
   const password = $("#password").val();
 
   $.ajax({
-    url: "/login",
+    url: "/user",
     method: "POST",
     dataType: "json",
     contentType: "application/json",
     data: JSON.stringify({ username, password }),
-
-    success: function (data) {
-      localStorage.setItem("token", data.accessToken);
-      window.location.href = "/App/calender-Home-Page/index.html";
-    },
-
+    success: goToLogin(),
     error: function (error, textStatus, errorThrown) {
       if (error.status === 401) {
         console.log("Unauthorized error:", errorThrown);
       } else {
         console.log("Request failed:", errorThrown);
       }
-    },
+    }
   });
 });
