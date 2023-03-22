@@ -28,10 +28,18 @@
                 <button id="buttonXofCard" type="button" class="btn-close" aria-label="Close"></button>
             </div>
             <div class="card-body">
-            <p class="card-text">{{description}}</p>
-            <img class="gif" src="{{gifUrl}}" alt="gif">
+                <img class="gif" src="{{gifUrl}}" alt="gif">
+                <p class="cardText">{{description}}</p>
             </div>
-                <a href="#" class="btn btn-outline-dark delete-btn pink deleteList" data-name="{{name}}">Delete <i class="material-icons ">delete</i></a>
+            <div class="DoneButton" data-name="{{name}}">  
+                <form action="#" class="DoneList">
+                  <label >
+                    <input class="checkbox" type="checkbox" />
+                    <span class="doneText" >Done</span>
+                  </label>
+                </form>
+            </div>
+            <a href="#" class="btn btn-outline-dark delete-btn pink deleteList" data-name="{{name}}">Delete <i class="material-icons ">delete</i></a>
         </div>
       </script>
     <div class="window">

@@ -24,8 +24,16 @@ $("#doneListPage").on("click", function () {
 $("#createListPage").on("click", function () {
   window.location.href = "/App/ToDoPage/index.html";
 });
-$('body').on("click", ".deleteList",function(){
+$("body").on("click", ".deleteList", function () {
+  cardName = $(this).data("name");
+  userDataAPI.delete(cardName).then(() => {
+    render.removeEvent(cardName);
+    $(".cards-container").removeClass("displayCard");
+  });
+});
+$("body").on("change", ".DoneButton", function () {
   cardName = $(this).data("name")
+  $('.checkbox').attr("disabled", true);
   console.log(cardName);
   // userDataAPI.delete(cardName)
   // render.calendar();

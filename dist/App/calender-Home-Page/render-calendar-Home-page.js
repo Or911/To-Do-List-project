@@ -2,7 +2,11 @@ class Render {
   constructor() {
     this.events = [];
   }
-
+  removeEvent(name) {
+    let newEvents = this.events.filter((e) => e.title !== name);
+    this.events = newEvents;
+    this.calendar();
+  }
   addEvent(todoList) {
     let newEvent = this.sortDataToEvent(todoList);
     this.events.push(newEvent);
@@ -14,12 +18,12 @@ class Render {
       start: todoList.date,
     };
     if (todoList.isDone) {
-      newEvent.color = '#00a341';
+      newEvent.color = "#00a341";
+    } else if (new Date(todoList.date) < new Date()) {
+      newEvent.color = "#ff605c";
+    } else {
+      newEvent.color = "#ffbd44";
     }
-    else if (new Date(todoList.date) < new Date) {
-      newEvent.color = '#ff605c';
-    }
-    else{newEvent.color = '#ffbd44'; }
     return newEvent;
   }
 
@@ -55,9 +59,13 @@ class Render {
     calendar.render();
   }
   ToDoCardRender(card) {
-    if (card.isDone) {card.color = "green";}
-    else if (new Date(card.date) < new Date) {card.color = 'red';}
-    else{card.color = 'orange'; }
+    if (card.isDone) {
+      card.color = "green";
+    } else if (new Date(card.date) < new Date()) {
+      card.color = "red";
+    } else {
+      card.color = "orange";
+    }
     $(".cards-container").empty();
     const source = $("#card-template").html();
     const template = Handlebars.compile(source);

@@ -1,5 +1,6 @@
 const express = require("express");
 const MonogDB = require("../model/DBschema");
+const UserDB = require("../model/UserSchema");
 const dataManager = require("../utilities/dataManager");
 const securityManager = require("../utilities/securityManager");
 const sortMomentDate = require('../utilities/sortDate')
@@ -8,13 +9,24 @@ const router = express.Router();
 
 const authToken = securityManager.authenticateToken
 
+// router.get("/Todo", authToken , function (req, res) {
+//   MonogDB.find({})
+//     .sort({ date: -1 })
+//     .then(function (todoCards) {
+//       newCards = sortMomentDate(todoCards)
+//       res.send(newCards);
+//     });
+// });
+
 router.get("/Todo", authToken , function (req, res) {
-  MonogDB.find({})
-    .sort({ date: -1 })
-    .then(function (todoCards) {
-      newCards = sortMomentDate(todoCards)
-      res.send(newCards);
-    });
+  UserDB.find({username: req.user.username})
+  .populate("todoCards")
+  .select("todoCards -_id")
+  .sort({ date: -1 })
+  .then(function (todoCards) {
+    newCards = sortMomentDate(todoCards[0].todoCards)
+    res.send(newCards);
+  });
 });
 
 router.get("/Todo/:name", authToken, function (req, res) {
@@ -42,10 +54,13 @@ router.post("/Todo", authToken , (req, res) => {
 router.delete("/Todo/:name", authToken , function (req, res) {
   let todoName = req.params.name;
 
-  MonogDB.deleteOne({ name: todoName }).then((todo) => {
-    console.log("daleted");
-  });
-  res.end();
+  MonogDB.deleteOne({ name: todoName }).then(function (err) {
+    if(err.deletedCount > 0) {
+      res.send({messege : `deleted : ${todoName}`});
+    }else{
+      res.status(404).send({messege : `couldn't find todo card with that name : ${todoName}` });
+    }
+  })
 });
 
 router.put("/Todo/:name", authToken , function (req, res) {
