@@ -12,6 +12,7 @@
   min-height: 500px;
   margin: 30px;
   width: 50%;
+  margin-top: 5%;
   margin-left: 25%;
   background-color: aliceblue;
   padding: 10px;
@@ -155,17 +156,23 @@
 }
 
 #header {
+  background-color: rgba(246, 246, 246, 0.466);
+  padding: 5px;
+  box-shadow: 0 0 40px rgba(37, 17, 188, 0.6);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
   z-index: 3;
   display: inline;
   position: absolute;
   text-align: center;
   margin-left:40%;
-  margin-top: 30px;
+  margin-top: 5px;
   font-size: 50px;
   font-family: "Dank Mono", ui-monospace, monospace;
   
 }
 #header > span {
+  color: #f2a529;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
 }
 #header > i {

@@ -2,7 +2,7 @@ class UserDataAPI {
   constructor() {
     this.data = [];
   }
-  getdataByID(cardID) {// לבנתיים צריך לעבוד לid
+  getdataByID(cardID) {
     return this.data.find((d) => d.id === cardID);
   }
   getdataByName(nameOfList) {
@@ -10,7 +10,7 @@ class UserDataAPI {
   }
   removeDataByID(cardID) {
     let newData = this.data.find((d) => d.id !== cardID);
-    this.data = newData
+    this.data = newData;
   }
   removeUserByName(name) {
     let newData = this.data.filter((d) => d.name !== name);
@@ -41,11 +41,10 @@ class UserDataAPI {
       url: `/Todo/${name}`,
 
       success: (info) => {
-        return this.removeUserByName(name);
       },
     });
   }
-  isDone(ListID){
+  isDone(ListID) {
     return $.ajax({
       method: "PUT",
       headers: {
@@ -53,7 +52,7 @@ class UserDataAPI {
       },
       url: `/Todo/${ListID}`,
       success: () => {
-        return "success"
+        return "success";
       },
     });
   }

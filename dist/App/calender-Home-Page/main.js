@@ -36,18 +36,23 @@ $("body").on("click", ".deleteList", function () {
     $(".cards-container").removeClass("displayCard");
   });
 });
+
+
 $("body").on("change", ".DoneButton", function () {
   cardID = $(this).data("id")
   $('.checkbox').attr("disabled", true);
   userDataAPI.isDone(cardID)
   .then(()=>{
     userDataAPI.getDataUser()
-    .then(()=>{
+    .then((data)=>{
       let list = userDataAPI.getdataByID(cardID);
       render.ToDoCardRender(list);
       $('.checkbox').attr("disabled", true);
       $('.checkbox').attr('checked', true)
-      firstLoad();
+      render.removeAllEvent()
+      data.forEach((d) => {
+        render.addEvent(d);
+      });
     })
   })
 });
@@ -61,8 +66,10 @@ const firstLoad = function () {
     });
   });
 };
+
 $("#ExpireListPage").on("click", function () {
   window.location.href = "/App/expire-date-of-card/index.html";
 });
-// render first time
+
+
 firstLoad();

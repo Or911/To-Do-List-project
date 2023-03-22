@@ -21,7 +21,7 @@ const authToken = securityManager.authenticateToken
 router.get("/Todo", authToken , function (req, res) {
   UserDB.find({username: req.user.username})
   .populate("todoCards")
-  .select("todoCards -_id")
+  .select("todoCards")
   .sort({ date: -1 })
   .then(function (todoCards) {
     newCards = sortMomentDate(todoCards[0].todoCards)
