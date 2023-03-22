@@ -19,7 +19,7 @@ router.post("/user", (req, res) => {
 
   securityManager.addUser(req);
 
-  res.end();
+  res.status(201).send();
 });
 
 module.exports = router;

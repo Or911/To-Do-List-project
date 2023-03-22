@@ -2,6 +2,7 @@ const express = require("express");
 const MonogDB = require("../model/DBschema");
 const dataManager = require("../utilities/dataManager");
 const securityManager = require("../utilities/securityManager");
+const sortMomentDate = require('../utilities/sortDate')
 
 const router = express.Router();
 
@@ -11,7 +12,8 @@ router.get("/Todo", authToken , function (req, res) {
   MonogDB.find({})
     .sort({ date: -1 })
     .then(function (todoCards) {
-      res.send(todoCards);
+      newCards = sortMomentDate(todoCards)
+      res.send(newCards);
     });
 });
 

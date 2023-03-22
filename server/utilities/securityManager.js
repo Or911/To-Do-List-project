@@ -27,7 +27,7 @@ async function authenticateUser(username, password) {
 const addUser = function (req) {
   const user = new usersDB({
     username: req.body.username,
-    password: bcrypt.hashSync(req.body.password, salt),
+    password: bcrypt.hashSync(req.body.password, salt)
   });
 
   user.save().then((user) => {

@@ -21,13 +21,14 @@
 
 <body>
     <script id="card-template" type="text/x-handlebars-template">
-        <div class="card">
+        <div class="card {{isDone}}">
             <div class="card-header">
                 {{name}}
                 <button id="buttonXofCard">X</button>
             </div>
             <div class="card-body">
             <p class="card-text">{{description}}</p>
+            <img class="gif" src="{{gifUrl}}" alt="gif">
             
             </div>
             <div class="card-footer text-muted">
@@ -36,18 +37,18 @@
             </div>
         </div>
       </script>
-<div class="window">
-    <div class="cards-container"></div>
-        
+    <div class="window">
+        <div class="cards-container"></div>    
     </div>
-</div>
-<div id="navBar">
-    <a class="waves-effect waves-light btn-large" id="doneListPage">Done</a>
-    <a class="waves-effect waves-light btn-large" id="calendarPage">Home</a>
-    <a class="waves-effect waves-light btn-large" id="createListPage">create List</a>
-</div>
-<script src="./render-calendar-Home-page.js"></script>
-<script src="./modul.js"></script>
-<script src="./main.js"></script>
+
+    <div id="navBar">
+        <a class="waves-effect waves-light btn-large" id="doneListPage">Done</a>
+        <a class="waves-effect waves-light btn-large" id="calendarPage">Home</a>
+        <a class="waves-effect waves-light btn-large" id="createListPage">create List</a>
+    </div>
+    
+    <script src="./render-calendar-Home-page.js"></script>
+    <script src="./modul.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>

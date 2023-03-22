@@ -2,6 +2,10 @@ class UserDataAPI {
   constructor() {
     this.data = [];
   }
+  getUserByName(name){
+    return this.data.find(d => d.name == name)
+  }
+
   getDataUser() {
     return $.ajax({
       method: "GET",
@@ -10,9 +14,8 @@ class UserDataAPI {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      success: (info) => {
-        this.data = info;
-        return this.data;
+      success: (data) => {
+      this.data = data
       },
     });
   }
