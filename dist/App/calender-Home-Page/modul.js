@@ -2,6 +2,10 @@ class UserDataAPI {
   constructor() {
     this.data = [];
   }
+  sortData(data){
+    let date = data.date
+    console.log(date);
+  }
   getDataUser() {
     return $.ajax({
       method: "GET",
@@ -10,9 +14,11 @@ class UserDataAPI {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      success: (info) => {
-        this.data = info;
-        return this.data;
+      success: (data) => {
+        data.forEach(d => {
+          this.sortData(d)
+        });
+        
       },
     });
   }
