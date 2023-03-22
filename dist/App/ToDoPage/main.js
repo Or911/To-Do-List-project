@@ -14,6 +14,9 @@ $("#submit-button").on('click', function () {
     $.ajax({
         type: 'POST',
         url: 'http://localhost:3002/Todo',
-        data: ToDoData 
+        data: ToDoData,
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          }
       });
 })
