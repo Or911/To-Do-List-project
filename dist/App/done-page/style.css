@@ -13,13 +13,18 @@
   padding: 2px 16px;
   background-color: #eff6e0;
 }
-
+.center {
+  text-align: center;
+  border: 3px;
+  border-radius: 50px 20px;
+}
 body {
-  background-color: #fdfcdc;
+  background-image: url("./img/Calendar\ background.jpg");
+
 }
 button {
   margin-top: 50px;
-  width: 10%;
+  width: 15%;
   
   color: #080710;
   padding: 15px 0;

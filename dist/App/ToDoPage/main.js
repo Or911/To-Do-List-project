@@ -28,3 +28,6 @@ $("#doneListPage").on("click", function () {
 $("#calendarPage").on("click", function () {
     window.location.href = "/App/calender-Home-Page/index.html";
 });
+$("#ExpireListPage").on("click", function () {
+    window.location.href = "/App/expire-date-of-card/index.html";
+  });

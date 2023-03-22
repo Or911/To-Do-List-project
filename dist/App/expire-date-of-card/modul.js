@@ -15,7 +15,7 @@ class TodoList {
               },
             success: (info) => {
                 this.data=info
-                renderDonePage(this.data)
+                renderExpirePage(this.data)
             }
         })
         

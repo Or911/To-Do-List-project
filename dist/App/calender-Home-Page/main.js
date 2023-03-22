@@ -55,6 +55,8 @@ const firstLoad = function () {
     });
   });
 };
-
+$("#ExpireListPage").on("click", function () {
+  window.location.href = "/App/expire-date-of-card/index.html";
+});
 // render first time
 firstLoad();

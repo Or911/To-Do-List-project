@@ -12,8 +12,8 @@ $("#createListPage").on("click", function () {
   window.location.href = "/App/ToDoPage/index.html";
 });
 
-$("#ExpireListPage").on("click", function () {
-  window.location.href = "/App/expire-date-of-card/index.html";
+$("#doneListPage").on("click", function () {
+  window.location.href = "/App/done-page/index.html";
 });
 
 function removeDoneCard() {
