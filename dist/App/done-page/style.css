@@ -1,21 +1,21 @@
   .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    background-color: #2a9d8f;
+    background-color: #fdfcdc;
     
   }
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    background-color: #2a9d8f;
+    background-color: #fdfcdc;
   }
   
   .container {
     padding: 2px 16px;
-    background-color: #e9c46a;
+    background-color: #fdfcdc;
   }
 
   body {
-    background-color: lightblue;
+    background-color: #fdfcdc;
   }
   button {
     margin-top: 50px;
