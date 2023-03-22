@@ -1,15 +1,19 @@
-class dataUser{
-    constructor(){
-        this.list = []
-    }
-
-    getDataUser(){
-        $ajax
-            let title = $("#title-text").val();
-            let date = $("#date-text").val();
-            let description = $("#description-text").val();
-            userData = {name: title, date: date, description: description}
-            return userData
-        }
-        
-    }
+class UserDataAPI {
+  constructor() {
+    this.data = [];
+  }
+  getDataUser() {
+    return $.ajax({
+      method: "GET",
+      url: `/Todo`,
+      dataType: "json",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      success: (info) => {
+        this.data = info;
+        return this.data;
+      },
+    });
+  }
+}
