@@ -9,7 +9,7 @@ $("body").on("click", ".delete-btn", function () {
 
 $("body").on("click", ".fc-event-main", function () {
   let nameOfList = $(this).children(".fc-event-title").text();
-  let list = userDataAPI.getUserByName(nameOfList);
+  let list = userDataAPI.getdataByName(nameOfList);
   render.ToDoCardRender(list);
   $(".cards-container").addClass("displayCard");
 });
@@ -37,17 +37,22 @@ $("body").on("click", ".deleteList", function () {
   });
 });
 $("body").on("change", ".DoneButton", function () {
-  cardName = $(this).data("name")
+  cardID = $(this).data("id")
   $('.checkbox').attr("disabled", true);
-  console.log(cardName);
-  // userDataAPI.delete(cardName)
-  // render.calendar();
-})
-$("#ExpireListPage").on("click", function () {
-  window.location.href = "/App/expire-date-of-card/index.html";
+  userDataAPI.isDone(cardID)
+  .then(()=>{
+    userDataAPI.getDataUser()
+    .then(()=>{
+      let list = userDataAPI.getdataByID(cardID);
+      render.ToDoCardRender(list);
+      $('.checkbox').attr("disabled", true);
+      $('.checkbox').attr('checked', true)
+      firstLoad();
+    })
+  })
 });
-
 const firstLoad = function () {
+  render.removeAllEvent()
   render.usernameRender();
   render.calendar();
   userDataAPI.getDataUser().then((data) => {
@@ -56,6 +61,8 @@ const firstLoad = function () {
     });
   });
 };
-
+$("#ExpireListPage").on("click", function () {
+  window.location.href = "/App/expire-date-of-card/index.html";
+});
 // render first time
 firstLoad();

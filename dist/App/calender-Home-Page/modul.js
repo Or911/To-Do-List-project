@@ -2,8 +2,15 @@ class UserDataAPI {
   constructor() {
     this.data = [];
   }
-  getUserByName(name) {
-    return this.data.find((d) => d.name == name);
+  getdataByID(cardID) {// לבנתיים צריך לעבוד לid
+    return this.data.find((d) => d.id === cardID);
+  }
+  getdataByName(nameOfList) {
+    return this.data.find((d) => d.name === nameOfList);
+  }
+  removeDataByID(cardID) {
+    let newData = this.data.find((d) => d.id !== cardID);
+    this.data = newData
   }
   removeUserByName(name) {
     let newData = this.data.filter((d) => d.name !== name);
@@ -34,8 +41,19 @@ class UserDataAPI {
       url: `/Todo/${name}`,
 
       success: (info) => {
-        console.log(info + "deleted");
         return this.removeUserByName(name);
+      },
+    });
+  }
+  isDone(ListID){
+    return $.ajax({
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      url: `/Todo/${ListID}`,
+      success: () => {
+        return "success"
       },
     });
   }
