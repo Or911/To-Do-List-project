@@ -5,4 +5,12 @@ function doneRendrer(){
   todo.getAllList()
 }
 
+$("#calendarPage").on("click", function () {
+  window.location.href = "/App/calender-Home-Page/index.html";
+});
+
+$("#createListPage").on("click", function () {
+  window.location.href = "/App/ToDoPage/index.html";
+});
+
 doneRendrer()

@@ -1,8 +1,7 @@
-// Get the form and submit button elements
 const loginForm = $("#login-form");
 const loginBtn = $("#login-btn");
 
-// Add an event listener for the form submit event
+
 loginForm.on("submit", function (event) {
   event.preventDefault();
 
