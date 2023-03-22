@@ -72,4 +72,8 @@ class Render {
     let newHtml = template(card);
     $(".cards-container").append(newHtml);
   }
+
+  usernameRender(){
+    $('.fa-user').text(localStorage.getItem('username'))
+  }
 }

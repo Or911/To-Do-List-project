@@ -15,11 +15,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>DoneRight</title>
 </head>
 
 
 <body>
+    
     <script id="card-template" type="text/x-handlebars-template">
         <div class="{{isDone}}">
             <div class="card-header ">
@@ -42,6 +44,12 @@
             <a href="#" class="btn btn-outline-dark delete-btn pink deleteList" data-name="{{name}}">Delete <i class="material-icons ">delete</i></a>
         </div>
       </script>
+
+    <div id="header">
+        <span>DoneRight</span>
+        <i class="fa fa-user"></i>
+    </div>
+
     <div class="window">
         <div class="cards-container"></div>    
     </div>
@@ -50,7 +58,8 @@
         <a class="waves-effect waves-light btn-large" id="ExpireListPage">Expire</a>
         <a class="waves-effect waves-light btn-large" id="doneListPage">Done</a>
         <a class="waves-effect waves-light btn-large" id="calendarPage">Home</a>
-        <a class="waves-effect waves-light btn-large" id="createListPage">create List</a>
+        <a class="waves-effect waves-light btn-large" id="createListPage">New Card</a>
+        <a class="waves-effect waves-light btn-large" id="LogoutBtn">Logout</a>
     </div>
     
     <script src="./render-calendar-Home-page.js"></script>

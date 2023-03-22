@@ -24,6 +24,11 @@ $("#doneListPage").on("click", function () {
 $("#createListPage").on("click", function () {
   window.location.href = "/App/ToDoPage/index.html";
 });
+
+$("#LogoutBtn").on("click", function () {
+  window.location.href = "../../index.html";
+});
+
 $("body").on("click", ".deleteList", function () {
   cardName = $(this).data("name");
   userDataAPI.delete(cardName).then(() => {
@@ -43,6 +48,7 @@ $("#ExpireListPage").on("click", function () {
 });
 
 const firstLoad = function () {
+  render.usernameRender();
   render.calendar();
   userDataAPI.getDataUser().then((data) => {
     data.forEach((d) => {

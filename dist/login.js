@@ -20,6 +20,7 @@ loginForm.on("submit", function (event) {
 
     success: function (data) {
       localStorage.setItem("token", data.accessToken);
+      localStorage.setItem("username", username);
       window.location.href = "/App/calender-Home-Page/index.html";
     },
 
