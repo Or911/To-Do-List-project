@@ -18,56 +18,56 @@ const authToken = securityManager.authenticateToken
 //     });
 // });
 
-router.get("/Todo", authToken , function (req, res) {
-  UserDB.find({username: req.user.username})
-  .populate("todoCards")
-  .select("todoCards -_id")
-  .sort({ date: -1 })
-  .then(function (todoCards) {
-    newCards = sortMomentDate(todoCards[0].todoCards)
-    res.send(newCards);
-  });
+router.get("/Todo", authToken, function (req, res) {
+  UserDB.find({ username: req.user.username })
+    .populate("todoCards")
+    .select("todoCards -_id")
+    .sort({ date: -1 })
+    .then(function (todoCards) {
+      newCards = sortMomentDate(todoCards[0].todoCards)
+      res.send(newCards);
+    });
 });
 
 router.get("/Todo/:name", authToken, function (req, res) {
-  MonogDB.findOne({name : req.params.name})
+  MonogDB.findOne({ name: req.params.name })
     .then(function (todoCard) {
       res.send(todoCard);
     });
 });
-router.get("/TodosDone/:isDone", authToken , function (req, res) {
+router.get("/TodosDone/:isDone", authToken, function (req, res) {
 
-  MonogDB.find({isDone : req.params.isDone})
+  MonogDB.find({ isDone: req.params.isDone })
     .sort({ date: -1 })
     .then(function (todoCards) {
       res.send(todoCards);
     });
 });
 
-router.post("/Todo", authToken , (req, res) => {
+router.post("/Todo", authToken, (req, res) => {
 
   dataManager.addTodoCard(req)
 
   res.end();
 });
 
-router.delete("/Todo/:name", authToken , function (req, res) {
+router.delete("/Todo/:name", authToken, function (req, res) {
   let todoName = req.params.name;
-
+  console.log(todoName);
   MonogDB.deleteOne({ name: todoName }).then(function (err) {
-    if(err.deletedCount > 0) {
-      res.send({messege : `deleted : ${todoName}`});
-    }else{
-      res.status(404).send({messege : `couldn't find todo card with that name : ${todoName}` });
+    if (err.deletedCount > 0) {
+      res.send({ messege: `deleted : ${todoName}` });
+    } else {
+      res.status(404).send({ messege: `couldn't find todo card with that name : ${todoName}` });
     }
   })
 });
 
-router.put("/Todo/:name", authToken , function (req, res) {
+router.put("/Todo/:name", authToken, function (req, res) {
   let todoName = req.params.name;
   let description = req.body.description;
 
-  MonogDB.findOneAndUpdate({ name: todoName } , {description : description} ).then((todo) => {
+  MonogDB.findOneAndUpdate({ name: todoName }, { description: description }).then((todo) => {
     console.log(todo);
   });
 
