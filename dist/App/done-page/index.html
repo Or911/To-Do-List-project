@@ -39,7 +39,7 @@
           <p><img src="{{gifUrl}}" width="100" height="100" /></p>
 
           <div class="card-footer text-muted">
-            <a href="#" class="btn btn-outline-dark delete-btn">Delete</a>
+            <a id="remove" class="btn btn-outline-dark delete-btn" data-name="{{name}}">Delete</a>
             <p class="card-text">Finshed at: {{date}}</p>
           </div>
         </div>
@@ -48,7 +48,7 @@
     </script>
 
     <div class="container">
-      <div class="done-container text-center"></div>
+      <div id="cardId" class="done-container text-center"></div>
     </div>
 
     <script src="./modul.js"></script>

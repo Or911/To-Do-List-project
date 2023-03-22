@@ -20,7 +20,6 @@ class TodoList {
         })
         
     }
-<<<<<<< HEAD:dist/done-page/modul.js
 
     delete(name){
         $.ajax({
@@ -31,10 +30,10 @@ class TodoList {
             url: `/Todo/${name}`,
             
             success: (info) => {
+                
+                console.log(info+"deleted");
             }
         })
     }
+
 }
-=======
-}
->>>>>>> 383510c4c995176f4b684d711d11507e723f4bc2:dist/App/done-page/modul.js
