@@ -9,14 +9,17 @@ class Render {
     this.calendar();
   }
   sortDataToEvent(todoList) {
-    const imgDone = "https://cdn-icons-png.flaticon.com/512/4436/4436481.png";
     let newEvent = {
       title: todoList.name,
       start: todoList.date,
     };
     if (todoList.isDone) {
-      newEvent.image_url = imgDone;
+      newEvent.color = '#00a341';
     }
+    else if (new Date(todoList.date) < new Date) {
+      newEvent.color = '#ff605c';
+    }
+    else{newEvent.color = '#ffbd44'; }
     return newEvent;
   }
 
@@ -52,6 +55,9 @@ class Render {
     calendar.render();
   }
   ToDoCardRender(card) {
+    if (card.isDone) {card.color = "green";}
+    else if (new Date(card.date) < new Date) {card.color = 'red';}
+    else{card.color = 'orange'; }
     $(".cards-container").empty();
     const source = $("#card-template").html();
     const template = Handlebars.compile(source);

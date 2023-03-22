@@ -24,6 +24,12 @@ $("#doneListPage").on("click", function () {
 $("#createListPage").on("click", function () {
   window.location.href = "/App/ToDoPage/index.html";
 });
+$('body').on("click", ".deleteList",function(){
+  cardName = $(this).data("name")
+  console.log(cardName);
+  // userDataAPI.delete(cardName)
+  // render.calendar();
+})
 
 const firstLoad = function () {
   render.calendar();

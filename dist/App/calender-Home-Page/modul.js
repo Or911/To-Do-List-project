@@ -19,4 +19,18 @@ class UserDataAPI {
       },
     });
   }
+  delete(name){
+    $.ajax({
+        method:"DELETE",
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          },
+        url: `/Todo/${name}`,
+        
+        success: (info) => {
+            return "success"
+            console.log(info+"deleted");
+        }
+    })
+}
 }

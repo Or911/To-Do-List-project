@@ -14,27 +14,24 @@
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Document</title>
 </head>
 
 
 <body>
     <script id="card-template" type="text/x-handlebars-template">
-        <div class="card {{isDone}}">
-            <div class="card-header">
-                {{name}}
-                <button id="buttonXofCard">X</button>
+        <div class="{{isDone}}">
+            <div class="card-header ">
+                <h4 class="hederCard card{{color}}">{{name}}</h4>
+                <h6 class="date">ToDo until: {{date}}</h6>
+                <button id="buttonXofCard" type="button" class="btn-close" aria-label="Close"></button>
             </div>
             <div class="card-body">
             <p class="card-text">{{description}}</p>
             <img class="gif" src="{{gifUrl}}" alt="gif">
-            
             </div>
-            <div class="card-footer text-muted">
-                <a href="#" class="btn btn-outline-dark delete-btn">Delete</a>
-                <p class="card-text">ToDo until: {{date}}</p>
-            </div>
+                <a href="#" class="btn btn-outline-dark delete-btn pink deleteList" data-name="{{name}}">Delete <i class="material-icons ">delete</i></a>
         </div>
       </script>
     <div class="window">
