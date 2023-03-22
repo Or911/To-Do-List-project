@@ -8,7 +8,7 @@ class TodoList {
     getAllList() {
         $.ajax({
             method:"GET",
-            url: `/TodosDone/true`,
+            url: `/Todos`,
             dataType: 'json',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`

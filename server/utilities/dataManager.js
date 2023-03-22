@@ -1,4 +1,5 @@
 const MonogDB = require("../model/DBschema");
+const UsersDB = require("../model/UserSchema");
 const axios = require('axios')
 
 const addTodoCard = function (req) {
@@ -17,9 +18,10 @@ const addTodoCard = function (req) {
     });
 
     Todo.save().then((res) => {
-      console.log(res + "added to db");
+      UsersDB.findOneAndUpdate({username: req.user.username} , {$push : {todoCards: Todo}} , {new: true}).then((newUser) => {
+        console.log(newUser)
+      })
     });
-
   })
 
 };
