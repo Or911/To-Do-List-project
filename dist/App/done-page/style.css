@@ -19,7 +19,8 @@
   border-radius: 50px 20px;
 }
 body {
-  background-color: #d6d6d6;
+  background-image: url("./img/Calendar\ background.jpg");
+
 }
 button {
   margin-top: 50px;

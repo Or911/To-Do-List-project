@@ -30,6 +30,9 @@ $('body').on("click", ".deleteList",function(){
   // userDataAPI.delete(cardName)
   // render.calendar();
 })
+$("#ExpireListPage").on("click", function () {
+  window.location.href = "/App/expire-date-of-card/index.html";
+});
 
 const firstLoad = function () {
   render.calendar();
