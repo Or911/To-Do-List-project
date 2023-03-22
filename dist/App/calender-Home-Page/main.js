@@ -1,21 +1,5 @@
 const render = new Render();
-// זה הדאטא שנכנס
-let mokdata = {
-  name: "to do",
-  isDone: true,
-  date: "2023-03-24",
-  description: "hi dear my name",
-};
-let mok = {
-  name: "go to work",
-  isDone: false,
-  date: "2023-03-27",
-  description: "i need to dfo",
-};
-
-render.addEvent(mokdata);
-render.addEvent(mok);
-
+const userDataAPI = new UserDataAPI()
 $("body").on("click", ".delete-btn", function () {
   const footer = $(this).parent();
   const parent = footer.parent().html();
@@ -38,4 +22,15 @@ $("#doneListPage").on("click", function () {
   window.location.href = "/App/done-page/index.html";
 });
 
-render.calendar(); // render first time
+const firstLoad = function (){
+  render.calendar();
+  userDataAPI.getDataUser()
+  .then(data => {
+    data.forEach((d) =>{
+      render.addEvent(d)
+    })
+  })
+}
+
+ // render first time
+firstLoad()

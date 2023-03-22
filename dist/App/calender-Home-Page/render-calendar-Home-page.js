@@ -21,6 +21,7 @@ class Render {
   }
 
   calendar() {
+    $("#calendar-container").remove();
     $(".window").append(`<div id='calendar-container'></div>`);
     const calendarHtml = document.getElementById("calendar-container");
     const calendar = new FullCalendar.Calendar(calendarHtml, {
